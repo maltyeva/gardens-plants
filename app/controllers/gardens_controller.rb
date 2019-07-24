@@ -8,6 +8,7 @@ class GardensController < ApplicationController
 
   # GET /gardens/1
   def show
+    @plants = @garden.plants
   end
 
   # GET /gardens/new
@@ -46,13 +47,13 @@ class GardensController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_garden
-      @garden = Garden.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_garden
+    @garden = Garden.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def garden_params
-      params.require(:garden).permit(:name, :banner_url)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def garden_params
+    params.require(:garden).permit(:name, :banner_url)
+  end
 end

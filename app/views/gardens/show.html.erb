@@ -1,14 +1,20 @@
 <p id="notice"><%= notice %></p>
-
+<%= image_tag @garden.banner_url, width: 300 %>
 <p>
   <strong>Name:</strong>
   <%= @garden.name %>
 </p>
-
-<p>
-  <strong>Banner url:</strong>
-  <%= @garden.banner_url %>
-</p>
-
+<h4>Here are all the plants in your garden</h4>
+<ul>
+  <% @garden.plants.each do |plant| %>
+    <li>
+      <%= plant.name %>
+      <%= link_to plant_path(plant), method: "delete", data: {confirm: "Are you suuuure?"} do %>
+        <i class="fas fa-trash"></i>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "Add a plant to the garden! 🌹",  new_garden_plant_path(@garden)%> | 
 <%= link_to 'Edit', edit_garden_path(@garden) %> |
 <%= link_to 'Back', gardens_path %>
