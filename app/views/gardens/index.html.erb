@@ -1,0 +1,20 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1548403374-728475ca2813?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80);">
+  <div class="container">
+    <h1>My Parks and Recreations App!</h1>
+  </div>
+</div>
+<div class="container pt-5">
+  <div class="row">
+    <% @gardens.each do |garden| %>
+      <div class="col-xs-12 col-sm-6">
+        <%= link_to garden_path(garden.id) do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= garden.banner_url %>)">
+            <%= garden.name %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<!-- link_to path do -->
+<!-- end  -->

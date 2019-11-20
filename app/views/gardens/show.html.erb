@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Name:</strong>
+  <%= @garden.name %>
+</p>
+<p>
+  <strong>Banner url:</strong>
+  <%= @garden.banner_url %>
+</p>
+<% @garden.plants.each do |plant| %>
+  <div class="card ">
+    <h3><%= plant.name %></h3>
+    <p> Size: <%= plant.size %> </p>
+    <p> Water it <%= plant.water_freq %> times a month</p>
+    <p><%= link_to plant_path(plant), method: :delete do %>
+        <i class="far fa-trash-alt"></i>
+      <% end %>
+    </p>
+  </div>
+<% end %>
+<%= link_to edit_garden_path(@garden) do %>
+  <i class="far fa-edit"></i>
+<% end %> |
+<%= link_to 'Back', gardens_path %> | <%= link_to 'New Plant', new_garden_plant_path(@garden) %>

@@ -1,0 +1,6 @@
+<%= simple_form_for [@garden, @plant] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :size %>
+  <%= f.input :water_freq, label: "water frequency" %>
+  <%= f.submit %>
+<% end %>
